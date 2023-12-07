@@ -8,9 +8,9 @@ const nextConfig = {
     domains: [
       "fakestoreapi.com",
       "64.227.42.134",
-      "avatars.githubusercontent.com",
+      "images.pexels.com",
       "140.82.121.5:443",
-      "165.227.164.31"
+      "165.227.164.31",
     ],
   },
   sassOptions: {
