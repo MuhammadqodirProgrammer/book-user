@@ -10,7 +10,7 @@ export default function Layout({ children }: any) {
       <div>
         <Header />
       </div>
-      <div className="inner_container mt-[12vh] min-h-[78vh] ">{children}</div>
+      <div>{children}</div>
       <div>
         <Footer />
       </div>
