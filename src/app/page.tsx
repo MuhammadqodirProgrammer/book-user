@@ -16,7 +16,7 @@ export default function Home() {
   const stars = useRef(null);
   const sun = useRef(null);
   const copy = useRef(null);
-  const btn = useRef(null);
+  const scrollDown = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -96,18 +96,25 @@ export default function Home() {
       tl.to(
         copy.current,
         {
-          y: "-150%",
+          y: "-170%",
           opacity: 1,
         },
         0
       );
       tl.to(
-        btn.current,
+        scrollDown.current,
         {
-          opacity: 1,
+          opacity: 0,
         },
-        1.5
+        0
       );
+      // tl.to(
+      //   btn.current,
+      //   {
+      //     opacity: 1,
+      //   },
+      //   1.5
+      // );
     });
     return () => ctx.revert();
   }, []);
@@ -153,8 +160,14 @@ export default function Home() {
         />
         <img ref={stars} className="stars" src="/parallax/stars.svg" />
         <div ref={copy} className="copy">
-          <h1>Journey</h1>
-          <span ref={btn}>Discover more</span>
+          <h1 className="hero_title">Bookinary</h1>
+        </div>
+        <div className="indicator" ref={scrollDown}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </div>
