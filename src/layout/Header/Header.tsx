@@ -2,10 +2,10 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import logo from "../../../public/images/logo2.png";
+import logo from "../../../public/images/logo.png";
 import Button from "../../components/Button/Button";
 import styled from "styled-components";
-import { FaRocket, FaWallet } from "react-icons/fa";
+import { IoMdPersonAdd } from "react-icons/io";
 import { Abril_Fatface } from "next/font/google";
 import hover3d from "../../utils/hover";
 
@@ -33,26 +33,31 @@ function Header() {
     <HeaderStyled ref={hero}>
       <nav>
         <div className="logo">
-          <Image src={logo} alt="logo" width={36} />
-          <h2>Logo</h2>
+          <a href="/">
+            <Image
+              className="logo_img"
+              src={logo}
+              alt="logo"
+              width={300}
+              height={150}
+            />
+          </a>
         </div>
-        <div className="input">
-          <input type="text" placeholder="Search" />
-        </div>
+
         <ul className="nav-items">
           <li>
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Auctions</a>
-          </li>
-          <li>
-            <a href="#">Marketplace</a>
-          </li>
-          <li>
             <a href="#">About</a>
           </li>
-          <Button name="Connect Wallet" icon={<FaWallet />} />
+          <li>
+            <a href="#">Books</a>
+          </li>
+          <li>
+            <a href="#">Authors</a>
+          </li>
+          <Button name="Login" icon={<IoMdPersonAdd />} />
         </ul>
       </nav>
       {/* <div className="header-content">
@@ -106,11 +111,20 @@ const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
     .logo {
       display: flex;
       align-items: center;
       gap: 1rem;
       cursor: pointer;
+    }
+
+    .logo_img {
+      height: 100px !important;
+      object-fit: cover;
+      mix-blend-mode: hard-light;
     }
 
     .input {
