@@ -9,6 +9,7 @@ interface ButtonProps {
   background?: string;
   color?: string;
   border?: string;
+  className?: string;
 }
 
 function Button({
@@ -17,6 +18,7 @@ function Button({
   background = "var(--color-bg)",
   color,
   border,
+  className,
 }: ButtonProps) {
   return (
     <ButtonStyled
@@ -25,6 +27,10 @@ function Button({
         color: color,
         border: border,
       }}
+      onClick={() => {
+        location.replace("/auth/login");
+      }}
+      className={className}
     >
       {icon && icon}
       {name}
@@ -35,15 +41,18 @@ function Button({
 const ButtonStyled = styled.button`
   padding: 0.8rem 2rem;
   border-radius: 30px;
-  border: 2px solid var(--color-border);
+  border: 2px solid #ea8e3c;
   cursor: pointer;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
   transition: all 0.2s ease-in-out;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   &:hover {
-    background-color: var(--color-border);
+    background-color: #ea8e3c !important;
     color: white;
+    transform: scale(0.96);
   }
 `;
 

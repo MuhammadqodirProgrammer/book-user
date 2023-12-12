@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 
 *,
 html,
@@ -15,6 +15,20 @@ body {
 :root {
   --primaryColor: #282a57;
   --secondaryColor: #e4e4e4;
+  --black: #000000;
+  --ash-black: #222;
+  --white: #fafafa;
+  --sky: #00ccff;
+  --green: #22dddd;
+  --blue: #1300ff;
+  --dusk: #6600ff;
+  --purple: #9900ff;
+  --pink: #ff0066;
+  --red: #fe0222;
+  --orange: #fd7702;
+  --yellow: #ffbb00;
+  --background: var(--white);
+  --accent: var(--pink);
 }
 
 body {
@@ -135,6 +149,24 @@ body {
   font-family: 'Permanent Marker', cursive;
 }
 
+@media screen and (max-width: 750px) {
+  .hero_title {
+    font-size: 140px !important;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .hero_title {
+    font-size: 100px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero_title {
+    font-size: 80px !important;
+  }
+}
+
 /* scroll doen arrow */
 .indicator {
   position: relative;
@@ -201,4 +233,175 @@ body {
   100% {
     border-color: #ffd64a;
   }
+}
+
+/* mobile menu toggle */
+
+
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: var(--background);
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  -webkit-border-radius: 1ex;
+}
+
+::-webkit-scrollbar-corner {
+  background: #fff3;
+}
+
+.refresh {
+  padding: 5px;
+  position: absolute;
+  border: 1px dotted var(--accent);
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.refresh path {
+  fill: var(--accent);
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin: 0;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  background: var(--accent);
+  padding-top: 100px;
+  transform: translateX(-100%);
+  will-change: transform;
+}
+
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  padding-bottom: 50px;
+  align-items: center;
+}
+
+
+.example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.item {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--background);
+  font-size: 240px;
+  line-height: 260px;
+  font-weight: 700;
+  border-radius: 30px;
+}
+
+.mobileToggleMenu h1,
+h2,
+h3 {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.mobileToggleMenu h1 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-align: center;
+  margin: 100px 0 40px;
+}
+
+.mobileToggleMenu h2 {
+  font-weight: 400;
+  margin: 50px 0 10px;
+}
+
+.mobileToggleMenu p {
+  margin: 0 0 30px 0;
+  font-size: 18px;
+}
+
+
+.refresh path {
+  fill: var(--accent);
+}
+
+.mobileToggleMenu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+
+.mobileToggleMenu li {
+  color: var(--background);
+  display: block;
+  transform-origin: -20px 50%;
+  font-weight: bold;
+  font-size: 48px;
+  padding: 10px;
+  will-change: transform, opacity, filter;
+}
+
+.mobileToggleMenu button {
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent);
+  padding: 10px;
+}
+
+.mobileToggleMenu button path {
+  fill: var(--background);
+}
+
+.mobileToggleMenu input {
+  accent-color: var(--accent);
+}
+
+
+.mobileToggleMenu label {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
 }

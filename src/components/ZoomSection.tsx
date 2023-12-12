@@ -1,26 +1,26 @@
 "use client";
 
 import React, { useRef } from "react";
-import hover3d from "../utils/hover";
+import useHover3d from "../utils/hover";
 import styled from "styled-components";
 import Image from "next/image";
 
 function ZoomSection() {
   const hero = useRef<HTMLDivElement>(null);
 
-  const hover = hover3d(hero, {
+  const hover = useHover3d(hero, {
     x: -5,
     y: 10,
     z: 4,
   });
 
-  const hover2 = hover3d(hero, {
+  const hover2 = useHover3d(hero, {
     x: 40,
     y: 20,
     z: 7,
   });
 
-  const hover3 = hover3d(hero, {
+  const hover3 = useHover3d(hero, {
     x: -40,
     y: -20,
     z: -7,
