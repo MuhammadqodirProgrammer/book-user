@@ -11,6 +11,7 @@ const nextConfig = {
       "images.pexels.com",
       "140.82.121.5:443",
       "165.227.164.31",
+      "library-backend.uz",
     ],
   },
   sassOptions: {

@@ -6,7 +6,7 @@ export default function Page() {
 
   return (
     <>
-      <div>account</div>
+      <div>audio books</div>
     </>
   );
 }
