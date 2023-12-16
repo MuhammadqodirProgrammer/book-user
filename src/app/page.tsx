@@ -309,9 +309,12 @@ export default function Home() {
           >
             {mostviewbooks?.map((book: any) => (
               <SwiperSlide>
-                <a href="/singlebook" onClick={()=>{
-                  localStorage.setItem()
-                }}>
+                <a
+                  href="/singlebook"
+                  onClick={() => {
+                    localStorage.setItem("book_id", book.id);
+                  }}
+                >
                   <Image
                     data-swiper-parallax="0"
                     className="book_image"
@@ -354,9 +357,12 @@ export default function Home() {
           >
             {mostcommentbooks?.map((book: any) => (
               <SwiperSlide>
-                <a href="/singlebook" onClick={()=>{
-                  localStorage.setItem()
-                }}>
+                <a
+                  href="/singlebook"
+                  onClick={() => {
+                    localStorage.setItem("book_id", book.id);
+                  }}
+                >
                   <Image
                     data-swiper-parallax="0"
                     className="book_image"
