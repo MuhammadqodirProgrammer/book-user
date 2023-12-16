@@ -102,37 +102,60 @@ function Header() {
 
         <ul className="nav-items">
           <li>
-            <a href="#" data-replace="Home">
+            <a href="/" data-replace="Home">
               <span>Home</span>
             </a>
           </li>
           <li>
-            <a href="#" data-replace="About">
+            <a href="/about" data-replace="About">
               <span>About</span>
             </a>
           </li>
           <li>
-            <a href="#" data-replace="Books">
+            <a href="/books" data-replace="Books">
               <span>Books</span>
             </a>
           </li>
           <li>
-            <a href="#" data-replace="Authors">
+            <a href="/authors" data-replace="Authors">
               <span>Authors</span>
             </a>
           </li>
           <li>
-            <a href="#" data-replace="Contact">
+            <a href="/audiobooks" data-replace="Audio Books">
+              <span>Audio Books</span>
+            </a>
+          </li>
+          <li>
+            <a href="/contact" data-replace="Contact">
               <span>Contact</span>
             </a>
           </li>
-          <Button name="Login" icon={<IoMdPersonAdd />} />
+          <a
+            href="/auth/login"
+            className={`
+        px-6 py-3  rounded-full cursor-pointer
+        flex items-center gap-2 text-white shadow-[-5px_-5px_10px_rgba(255,_255,_255,_0.8),_5px_5px_10px_rgba(0,_0,_0,_0.25)]
+        transition-all hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
+         btn_hero font-semibold
+    `}
+          >
+            <IoMdPersonAdd />
+            Sign In
+          </a>
         </ul>
-        <Button
-          className="mobileLoginBtn"
-          name="Login"
-          icon={<IoMdPersonAdd />}
-        />
+        <a
+          href="/auth/login"
+          className={`
+        px-6 py-3  rounded-full cursor-pointer
+        flex items-center gap-2 text-white shadow-[-5px_-5px_10px_rgba(255,_255,_255,_0.8),_5px_5px_10px_rgba(0,_0,_0,_0.25)]
+        transition-all hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
+         btn_hero font-semibold mobileLoginBtn
+    `}
+        >
+          <IoMdPersonAdd />
+          Sign In
+        </a>
       </nav>
 
       {/* <div className="header-content">
@@ -283,7 +306,7 @@ const HeaderStyled = styled.header`
         display: none !important;
       }
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
       padding: 0 2rem !important;
     }
     @media (max-width: 700px) {
@@ -291,6 +314,13 @@ const HeaderStyled = styled.header`
     }
     @media (max-width: 500px) {
       padding: 0 !important;
+    }
+
+    .mobileToggleMenu {
+      display: none !important;
+      @media (max-width: 1000px) {
+        display: block !important;
+      }
     }
   }
 

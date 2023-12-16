@@ -1,10 +1,13 @@
 import axios from "axios";
 // const token = localStorage.getItem("token");
-export const baseURL = `http://localhost:2002/api`;
-export const baseURLImg = `http://localhost:2002`;
+export const baseURL = `https://library-backend.uz/api`;
+export const baseURLImg = `https://library-backend.uz/uploads/images/`;
 const apiRoot = axios.create({
-  baseURL: `http://localhost:2002/api`,
-
+  baseURL: `https://library-backend.uz/api`,
+  headers: {
+    Authorization:
+      localStorage.getItem("token") || sessionStorage.getItem("token"),
+  },
 });
 
 export default apiRoot;

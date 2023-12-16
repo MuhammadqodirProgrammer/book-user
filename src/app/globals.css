@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
 *,
 html,
@@ -32,12 +32,11 @@ body {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: var(--primaryColor);
   color: var(--secondaryColor);
+  overflow-x: hidden;
 }
-
-
 
 /* parallax hero */
 
@@ -48,13 +47,11 @@ body {
 .parallax {
   height: 110vh;
   width: 100%;
-  position: relative;
 }
 
 .parallax img {
   position: absolute;
 }
-
 
 .mountain-3,
 .mountain-2,
@@ -107,7 +104,7 @@ body {
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 999999999 !important;
   color: var(--secondaryColor);
   display: flex;
   justify-content: center;
@@ -129,24 +126,8 @@ body {
   opacity: 0;
 }
 
-.about {
-  color: var(--secondaryColor);
-  padding-left: 10%;
-  padding-bottom: 20%;
-}
-
-.about h2 {
-  color: var(--secondaryColor);
-  font-size: 5rem;
-}
-
-.about p {
-  margin-top: 20px;
-  width: 50%;
-}
-
 .hero_title {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
 }
 
 @media screen and (max-width: 750px) {
@@ -237,8 +218,6 @@ body {
 
 /* mobile menu toggle */
 
-
-
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
@@ -247,7 +226,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--blue);
+  background: linear-gradient(
+    rgb(15, 43, 156),
+    rgb(103, 61, 125) 67%,
+    rgb(167, 74, 103),
+    rgb(237, 252, 84)
+  );
   -webkit-border-radius: 1ex;
 }
 
@@ -294,7 +278,6 @@ body {
   will-change: transform;
 }
 
-
 .controls {
   display: flex;
   flex-direction: column;
@@ -302,7 +285,6 @@ body {
   padding-bottom: 50px;
   align-items: center;
 }
-
 
 .example {
   display: flex;
@@ -352,7 +334,6 @@ h3 {
   font-size: 18px;
 }
 
-
 .refresh path {
   fill: var(--accent);
 }
@@ -388,7 +369,11 @@ h3 {
   height: 50px;
   border-radius: 50%;
   background: var(--accent);
-  padding: 10px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: block;
 }
 
 .mobileToggleMenu button path {
@@ -399,9 +384,129 @@ h3 {
   accent-color: var(--accent);
 }
 
-
 .mobileToggleMenu label {
   display: flex;
   align-items: center;
   margin: 20px 0;
+}
+
+/* about section */
+.about_title {
+  font-weight: 800;
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 50px;
+  text-decoration: underline;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 4rem;
+}
+
+.about div {
+  width: 55%;
+  height: 500px;
+  top: -100px;
+  left: -50px;
+  position: relative;
+}
+
+.about_text {
+  position: unset !important;
+  width: 55% !important;
+}
+
+.about_text h2 {
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.about p {
+  line-break: auto;
+}
+
+/* books */
+
+.book_title {
+  font-weight: 800;
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 30px;
+  text-decoration: underline;
+}
+
+.books_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 4rem;
+}
+
+.books_container > div {
+  width: 50%;
+  height: 500px;
+  right: -50px;
+  position: relative;
+}
+
+.book_list {
+  position: unset !important;
+}
+
+.book_list h2 {
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: -70px;
+  margin-bottom: -50px;
+}
+
+.shelf_img {
+  width: 900px;
+  height: 150px;
+  object-fit: cover;
+  left: -50px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.book_image {
+  width: 110px !important;
+  height: 130px !important;
+}
+
+.mySwiper {
+  position: relative;
+  top: 80px;
+  margin-left: 50px !important;
+  margin-right: 50px !important;
+}
+
+/* mobil and desktop */
+@media (max-width: 1100px) {
+  .about,
+  .books_container {
+    padding: 0 2rem !important;
+  }
+}
+@media (max-width: 700px) {
+  .about,
+  .books_container {
+    padding: 0 1rem !important;
+  }
+}
+@media (max-width: 500px) {
+  .about,
+  .books_container {
+    padding: 0 !important;
+  }
 }
