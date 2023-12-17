@@ -313,7 +313,7 @@ export default function Home() {
             className="mySwiper"
           >
             {mostviewbooks?.map((book: any) => (
-              <SwiperSlide key={author?.id}>
+              <SwiperSlide key={book?.id}>
                 <a
                   href="/singlebook"
                   onClick={() => {
@@ -362,7 +362,7 @@ export default function Home() {
           >
             {mostcommentbooks?.map((book: any) => (
                   
-                  <SwiperSlide key={author?.id} >
+                  <SwiperSlide key={book?.id} >
                 <a
                   href="/singlebook"
                   onClick={() => {

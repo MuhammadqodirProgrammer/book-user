@@ -50,7 +50,7 @@ const TiltCard = ({ img, name, birthday, id }: any) => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300"
+      className="relative h-96 w-72 max-[640px]:w-[95%] max-[640px]:mx-auto rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300"
     >
       <a
         href="/authors"
