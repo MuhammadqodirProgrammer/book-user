@@ -77,7 +77,7 @@ export default function Page() {
         <h3 className="   text-[50px] font-bold text-white">Authors </h3>
       </div>
 
-      <div className="grid lg:grid-cols-3 max-lg:grid-cols-2  max-sm:grid-cols-1  gap-3 py-3">
+      <div className="grid px-2 max-w-[1240px] mx-auto lg:grid-cols-3 max-lg:grid-cols-2  max-sm:grid-cols-1  gap-3 py-3">
         {data?.data?.length ? (
           data?.data?.map((item: any) => (
             <div
@@ -130,6 +130,7 @@ export default function Page() {
           <SkeletonDemo />
         )}
       </div>
+<div className="px-2 max-w-[1240px] mx-auto">
 
       {data?.data?.length && (
         <Pagination
@@ -138,6 +139,7 @@ export default function Page() {
           totalPage={data?.pageCount}
         />
       )}
+</div>
     </>
   );
 }

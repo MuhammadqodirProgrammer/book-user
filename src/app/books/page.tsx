@@ -166,7 +166,7 @@ export default function Page() {
         <h3 className=" text-[50px] font-bold text-white pt-20">Books </h3>
       </div>
 
-      <div className="grid lg:grid-cols-3 max-lg:grid-cols-2  max-sm:grid-cols-1  gap-3 py-3">
+      <div className="grid lg:grid-cols-3 max-lg:grid-cols-2 px-2 max-w-[1240px] mx-auto  max-sm:grid-cols-1  gap-3 py-3">
         {data?.data?.length ? (
           data?.data?.map((item: any) => (
             <div
@@ -255,7 +255,7 @@ export default function Page() {
           <SkeletonDemo />
         )}
       </div>
-
+<div className="px-2 max-w-[1240px] mx-auto">
       {data?.data?.length && (
         <Pagination
           activePage={activePage}
@@ -263,6 +263,8 @@ export default function Page() {
           totalPage={data?.pageCount}
         />
       )}
+
+</div>
       <FileModal
         width={" w-[85%] md:w-[600px] "}
         title={"Delete Book"}

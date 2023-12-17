@@ -404,7 +404,7 @@ export default function Home() {
         See all
       </a>
       <h2 className="author_title">Authors</h2>
-      <div className="flex text-slate-900 gap-5 max-[800px]:flex-col   flex-wrap  ">
+      <div className="flex text-slate-900 gap-5 max-[800px]:flex-col px-2 max-w-[1240px] mx-auto  max-[1000px]:flex-wrap  ">
         {authors?.map((author: any) => (
           <TiltCard
           key={author?.id}

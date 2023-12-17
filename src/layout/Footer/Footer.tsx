@@ -4,7 +4,7 @@ import "./footer.css";
 const Footer = () => {
   return (
     <footer className="footer  static bottom-0 mt-3 w-full z-50">
-      <div className="flex   justify-between w-full ">
+      <div className="flex px-2 max-w-[1240px] mx-auto  justify-between w-full ">
         <h4 className="text-[white]">
           © 2023 Osmondagi bolalar{" "}
         </h4>

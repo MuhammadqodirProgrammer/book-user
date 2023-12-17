@@ -67,7 +67,7 @@ export default function Page() {
       {isLoading ? (
         <div
           key={data?.id}
-          className="flex  max-sm:flex-wrap gap-3 relative dark:bg-famousCourcesBg bg-slate-300    text-white shadow-[0_1px_3px_0_rgba(0, 0, 0, 0.1),_0_1px_2px_0_rgba(0, 0, 0, 0.06)] rounded-md  p-4  w-[100%] max-lg:m-auto"
+          className="flex px-2 max-w-[1240px] mx-auto  max-sm:flex-wrap gap-3 relative dark:bg-famousCourcesBg bg-slate-300    text-white shadow-[0_1px_3px_0_rgba(0, 0, 0, 0.1),_0_1px_2px_0_rgba(0, 0, 0, 0.06)] rounded-md  p-4  w-[100%] max-lg:m-auto"
         >
           <Image
             className="h-[400px] max-sm:h-[280px]  max-sm:w-[100%]  w-[50%] object-cover rounded-lg transition ease-in-out hover:opacity-75"

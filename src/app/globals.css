@@ -680,6 +680,35 @@ h3 {
   .books_container {
     padding: 0 2rem !important;
   }
+ 
+}
+@media (max-width: 768px) {
+  .about ,.books_container {
+    display: flex;
+   flex-wrap: wrap;
+    padding: 0 3rem;
+  }
+  .about div {
+    width: 98%;
+    height: auto;
+    top: -100px;
+    left: -50px;
+    position: relative;
+    margin: 0 auto;
+
+  }
+  .about_text{
+    width: 95% !important;
+    margin: 0 auto;
+  }
+ 
+  
+  .books_container > div {
+    width: 98%;
+    height: auto;
+    right: 33px;
+    position: relative;
+  }
 }
 @media (max-width: 700px) {
   .about,
