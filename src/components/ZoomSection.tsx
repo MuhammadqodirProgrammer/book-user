@@ -36,6 +36,8 @@ function ZoomSection() {
         }}
       >
         <Image
+         width={500}
+         height={500}
           src="/images/spiral.svg"
           alt="bulb tree"
           fill
@@ -52,6 +54,7 @@ function ZoomSection() {
         />
 
         <Image
+        
           src="/images/arm2.jpg"
           alt="bulb tree"
           className="monkey"

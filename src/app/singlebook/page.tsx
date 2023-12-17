@@ -206,6 +206,8 @@ export default function Page() {
                     generateRandomHexColor() || "fff"
                   }.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato`}
                   alt="User Avatar"
+                  width={100}
+                  height={100}
                   className="w-12 h-12 rounded-full object-cover"
                 />
               </div>

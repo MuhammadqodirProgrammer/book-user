@@ -191,11 +191,16 @@ export default function Home() {
         >
           <Image
           alt="img"
+          
+          width={500}
+          height={500}
             ref={mountain3}
             className="mountain-3"
             src="/parallax/mountain-3.svg"
           />
           <Image
+           width={500}
+           height={500}
           alt="img"
             ref={mountain2}
             className="mountain-2"
@@ -203,32 +208,44 @@ export default function Home() {
           />
           <Image
           alt="img"
+           width={500}
+          height={500}
             ref={mountain1}
             className="mountain-1"
             src="/parallax/mountain-1.svg"
           />
           <Image
-          alt="img" ref={sun} className="sun" src="/parallax/sun.svg" />
+          alt="img"
+           width={500}
+          height={500} ref={sun} className="sun" src="/parallax/sun.svg" />
           <Image
           alt="img"
+           width={500}
+          height={500}
             ref={cloudsBottom}
             className="clouds-bottom"
             src="/parallax/cloud-bottom.svg"
           />
           <Image
           alt="img"
+           width={500}
+          height={500}
             ref={cloudsLeft}
             className="clouds-left"
             src="/parallax/clouds-left.svg"
           />
           <Image
           alt="img"
+           width={500}
+          height={500}
             ref={cloudsRight}
             className="clouds-right"
             src="/parallax/clouds-right.svg"
           />
           <Image
-          alt="img" ref={stars} className="stars" src="/parallax/stars.svg" />
+          alt="img"
+           width={500}
+          height={500} ref={stars} className="stars" src="/parallax/stars.svg" />
           <div ref={copy} className="copy">
             <h1 className="hero_title">Bookinary</h1>
             <p className="flex gap-2">
@@ -412,7 +429,7 @@ export default function Home() {
         See all
       </Link>
       <h2 className="author_title">Authors</h2>
-      <div className="flex text-slate-900 gap-5 max-[800px]:flex-col px-2 max-w-[1240px] mx-auto  max-[1000px]:flex-wrap  ">
+      <div className="flex text-slate-900 gap-5 max-[500px]:flex-col px-2 max-w-[1240px] mx-auto  max-[1000px]:flex-wrap  ">
         {authors?.map((author: any) => (
           <TiltCard
             key={author?.id}

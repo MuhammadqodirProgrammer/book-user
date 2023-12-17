@@ -36,6 +36,8 @@ function Fullpage() {
           src="/images/rover.jpg"
           alt="monkey"
           fill={true}
+          width={1000}
+          height={1000}
           style={{
             objectFit: "cover",
             objectPosition: "center",
