@@ -16,12 +16,15 @@ import { IoMdEye } from "react-icons/io";
 import { FaFileDownload } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { IoMdCloudUpload } from "react-icons/io";
+import Cookies from 'universal-cookie';
 
 export default function Page() {
   const [data, setData] = useState<any>([]);
   const [OneData, setOneData] = useState<any>([]);
   const id = localStorage.getItem("book_id");
   const router = useRouter();
+  const cookies = new Cookies();
+
   // Modals state
   const [EditModal, setEditModal] = useState<any>(false);
   const [DeleteModal, setDeleteModal] = useState<any>(false);
@@ -61,10 +64,18 @@ export default function Page() {
     }
   };
   const checkView = async (book_id: any) => {
-    const resp: any = await apiRoot.get(`check/view/${book_id}`, {
-      // withCredentials = true
-    });
-    console.log(resp?.data, "check func");
+    const key = cookies.get("browser_id");
+    try {
+      const resp: any = await apiRoot.get(`check/view/${book_id}`, {
+        headers: {
+          browser_id: key,
+        },
+      });
+      console.log(key, "key resp");
+      console.log(resp, "check resp");
+    } catch (error) {
+      console.error("Tekshirishda xato:", error);
+    }
   };
 
   function generateRandomHexColor() {
@@ -176,6 +187,7 @@ export default function Page() {
         type="application/pdf"
         width="100%"
         className="h-[50vh]"
+        onClick={ () => checkView(data?.id)}
       />
       <h3 className=" text-[22px] my-3 text-white  text-center ">
         Book commnets
@@ -189,7 +201,7 @@ export default function Page() {
               className="flex items-start mb-4 cursor-pointer hover:bg-gray-400 p-2 rounded-md"
             >
               <div className="w-12 h-12 bg-gray-300 rounded-full mr-3">
-                <img
+                <Image
                   src={`https://placehold.co/200x/001/${
                     generateRandomHexColor() || "fff"
                   }.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato`}

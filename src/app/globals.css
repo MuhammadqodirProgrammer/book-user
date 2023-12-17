@@ -12,6 +12,10 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --primaryColor: #282a57;
   --secondaryColor: #e4e4e4;
@@ -688,4 +692,19 @@ h3 {
   .books_container {
     padding: 0 !important;
   }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.my_animate {
+  animation: bounce 1s infinite !important;
 }

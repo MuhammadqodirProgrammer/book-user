@@ -11,6 +11,7 @@ import useHover3d from "../../utils/hover";
 import { useAnimate, stagger } from "framer-motion";
 import { MenuToggle } from "../../utils/MenuToggle";
 import { Menu } from "../../utils/Header";
+import Link from "next/link";
 
 const abril = Abril_Fatface({
   subsets: ["latin"],
@@ -89,7 +90,7 @@ function Header() {
           <MenuToggle toggle={() => setIsOpen(!isOpen)} />
         </div>
         <div className="logo">
-          <a href="/">
+          <Link href="/">
             <Image
               className="logo_img"
               src={logo}
@@ -97,36 +98,37 @@ function Header() {
               width={300}
               height={150}
             />
-          </a>
+          </Link>
         </div>
 
         <ul className="nav-items">
           <li>
-            <a href="/" data-replace="Home">
+            <Link href="/" data-replace="Home">
               <span>Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" data-replace="About">
+            <Link href="#about" data-replace="About">
               <span>About</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/books" data-replace="Books">
+            <Link href="/books" data-replace="Books">
               <span>Books</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/authors" data-replace="Authors">
+            <Link href="/authors" data-replace="Authors">
               <span>Authors</span>
-            </a>
+            </Link>
           </li>
+
           <li>
-            <a href="#contact" data-replace="Contact">
+            <Link href="#contact" data-replace="Contact">
               <span>Contact</span>
-            </a>
+            </Link>
           </li>
-          <a
+          <Link
             href="/auth/login"
             className={`
         px-6 py-3  rounded-full cursor-pointer
@@ -137,9 +139,9 @@ function Header() {
           >
             <IoMdPersonAdd />
             Sign In
-          </a>
+          </Link>
         </ul>
-        <a
+        <Link
           href="/auth/login"
           className={`
         px-6 py-3  rounded-full cursor-pointer
@@ -150,48 +152,8 @@ function Header() {
         >
           <IoMdPersonAdd />
           Sign In
-        </a>
+        </Link>
       </nav>
-
-      {/* <div className="header-content">
-        <div className="image-content">
-          <div
-            className="image"
-            style={{
-              transform: hoverHero.transform,
-            }}
-          >
-            <Image
-              src="/images/monkey.png"
-              width={500}
-              height={500}
-              alt="hero"
-              style={{
-                transform: imageHover.transform,
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="image-content">
-          <div
-            className="image"
-            style={{
-              transform: hoverHero.transform,
-            }}
-          >
-            <Image
-              src="/images/monkey.png"
-              width={500}
-              height={500}
-              alt="hero"
-              style={{
-                transform: imageHover.transform,
-              }}
-            />
-          </div>
-        </div>
-      </div> */}
     </HeaderStyled>
   );
 }
