@@ -17,10 +17,15 @@ import { FaFileDownload } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { IoMdCloudUpload } from "react-icons/io";
 import Cookies from "universal-cookie";
-
+import Link from "next/link";
+import toast, { Toaster } from "react-hot-toast";
+const notify = () => toast.success("Successfully Created");
+const notify2 = () => toast.error("Nimadir hato ketdi");
 export default function Page() {
   const [data, setData] = useState<any>([]);
   const [OneData, setOneData] = useState<any>([]);
+  const [Create, setCreate] = useState<any>(false);
+  const [Worn, setWorn] = useState<any>(false);
   const id =
     typeof window !== "undefined" ? localStorage.getItem("book_id") : null;
 
@@ -51,11 +56,32 @@ export default function Page() {
   const editcategory_idRef = useRef<any>();
   const editauthor_idRef = useRef<any>();
   const editsubcategory_idRef = useRef<any>();
+  const messageRef = useRef<any>();
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
+console.log(token);
 
   //upload funcs for  edit
 
+  const commentFunc = async (evt:any) => {
+evt.preventDefault()
+    const data ={
+      message: "Kitob ancha qiziqarli ekan",
+      book_id: id
+    }
+    const resp = await apiRoot.post(`comment` ,data );
+
+    console.log(resp?.status, "get func");
+
+    if (resp?.status === 201) {
+      notify()
+      // setData(resp?.data);
+      setCreate(false)
+      // setIsLoading(true);
+    }else{
+      notify2()
+    }
+  };
   const getFunc = async () => {
     const resp = await apiRoot.get(`books/${id}`);
     console.log(resp?.data, "get func");
@@ -107,6 +133,7 @@ export default function Page() {
 
   return (
     <>
+    <Toaster/>
       <div className="flex  max-[550px]:flex-col  justify-center items-center   gap-[30px] mb-[15px] pt-24 ">
         <button
           className="bg-red-500 flex items-center gap-2 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
@@ -164,6 +191,20 @@ export default function Page() {
                 <code>audio</code> element.
               </audio>
             )}
+
+<button
+          className="bg-teal-500  flex items-center gap-2 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => {
+            if(token){
+              setCreate(true)
+            }else{
+              setWorn(true)
+            }
+          }}
+        >
+          {/* <FaArrowLeftLong size={15} className=" my_animate  " /> */}
+          Add commnets 
+        </button>
 
             <div className="flex gap-[10px] items-center  text-white">
               <p>Created:</p>
@@ -228,6 +269,85 @@ export default function Page() {
       ) : (
         "commnetlar yoq ☹"
       )}
+
+
+
+<Modal
+				width={'900px'}
+				title={'Create commnet'}
+				modal={Create}
+				setModal={setCreate}
+			>
+				<div className=' md:p-5 '>
+					<form
+						className='flex flex-col items-center gap-3 justify-center'
+						onSubmit={commentFunc}
+					>
+					
+					
+
+					
+						<input
+							className='w-full p-2 border rounded  border-gray-500 outline-none   dark:focus:border-blue-500  focus:border-blue-500  dark:bg-gray-700 bg-transparent '
+							placeholder='enter commnet'
+							type='text'
+							ref={messageRef}
+						/>
+				
+
+						<div className='flex gap-x-2'>
+							<button
+								className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+								type='submit'
+							>
+								Add
+							</button>
+							<button
+								className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+								type='button'
+								onClick={() => setCreate(false)}
+							>
+								Cancel
+							</button>
+						</div>
+					</form>
+				</div>
+			</Modal>
+
+
+      <Modal
+				width={'900px'}
+				title={'Siz registrasya qilmagansz?'}
+				modal={Worn}
+				setModal={setWorn}
+			>
+				<div className=' md:p-5 '>
+					<form
+						className='flex flex-col items-center gap-3 justify-center'
+						// onSubmit={}
+					>
+					
+
+						<div className='flex gap-x-2'>
+							<Link
+              href={"/auth/login"}
+								className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+								type='submit'
+							>
+								Go to login or register
+							</Link>
+							<button
+								className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+								type='button'
+								onClick={() => setWorn(false)}
+							>
+								Cancel
+							</button>
+						</div>
+					</form>
+				</div>
+			</Modal>
+
     </>
   );
 }

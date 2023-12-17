@@ -90,3 +90,4 @@ export const FileModal: React.FC<ModalProps> = ({
     </div>
   );
 };
+
