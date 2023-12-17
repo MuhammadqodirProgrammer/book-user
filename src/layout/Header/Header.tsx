@@ -108,7 +108,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/about" data-replace="About">
+            <Link href="#about" data-replace="About">
               <span>About</span>
             </Link>
           </li>
@@ -122,13 +122,9 @@ function Header() {
               <span>Authors</span>
             </Link>
           </li>
+
           <li>
-            <Link href="/audiobooks" data-replace="Audio Books">
-              <span>Audio Books</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" data-replace="Contact">
+            <Link href="#contact" data-replace="Contact">
               <span>Contact</span>
             </Link>
           </li>
@@ -158,8 +154,6 @@ function Header() {
           Sign In
         </Link>
       </nav>
-
-     
     </HeaderStyled>
   );
 }
