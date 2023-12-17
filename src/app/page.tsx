@@ -361,8 +361,7 @@ export default function Home() {
             className="mySwiper"
           >
             {mostcommentbooks?.map((book: any) => (
-                  
-                  <SwiperSlide key={book?.id} >
+              <SwiperSlide key={book?.id}>
                 <a
                   href="/singlebook"
                   onClick={() => {
@@ -407,7 +406,7 @@ export default function Home() {
       <div className="flex text-slate-900 gap-5 max-[800px]:flex-col   flex-wrap  ">
         {authors?.map((author: any) => (
           <TiltCard
-          key={author?.id}
+            key={author?.id}
             img={author.author_image}
             name={author.full_name}
             birthday={author.birthday}

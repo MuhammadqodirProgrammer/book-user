@@ -16,12 +16,14 @@ import { IoMdEye } from "react-icons/io";
 import { FaFileDownload } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import { IoMdCloudUpload } from "react-icons/io";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 
 export default function Page() {
   const [data, setData] = useState<any>([]);
   const [OneData, setOneData] = useState<any>([]);
-  const id = localStorage.getItem("book_id");
+  const id =
+    typeof window !== "undefined" ? localStorage.getItem("book_id") : null;
+
   const router = useRouter();
   const cookies = new Cookies();
 
@@ -179,15 +181,13 @@ export default function Page() {
         ""
       )}
 
-      <h3 className=" text-[22px] my-3 text-white  text-center ">
-        Book file{" "}
-      </h3>
+      <h3 className=" text-[22px] my-3 text-white  text-center ">Book file </h3>
       <embed
         src={`${baseMediaUrl}/files/${data?.book_file}`}
         type="application/pdf"
         width="100%"
         className="h-[50vh]"
-        onClick={ () => checkView(data?.id)}
+        onClick={() => checkView(data?.id)}
       />
       <h3 className=" text-[22px] my-3 text-white  text-center ">
         Book commnets
