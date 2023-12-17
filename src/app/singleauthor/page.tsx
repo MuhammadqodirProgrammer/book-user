@@ -17,7 +17,8 @@ import { FaFileDownload } from "react-icons/fa";
 export default function Page() {
   const [data, setData] = useState<any>([]);
   const [OneData, setOneData] = useState<any>([]);
-  const id = localStorage.getItem("author_id");
+  const id =
+    typeof window !== "undefined" ? localStorage.getItem("author_id") : null;
   const router = useRouter();
   // Modals state
   const [EditModal, setEditModal] = useState<any>(false);
