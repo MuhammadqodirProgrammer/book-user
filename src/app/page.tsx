@@ -254,7 +254,9 @@ export default function Home() {
         </div>
       </div>
       {/* about */}
-      <h2 className="about_title">About</h2>
+      <h2 className="about_title" id="about">
+        About
+      </h2>
       <div className="about">
         <Lottie animationData={animatedData} />
         <div className="about_text">
@@ -423,7 +425,7 @@ export default function Home() {
         See all
       </a>
       {/* contact */}
-      <div className="py-2 px-4 mx-auto max-w-screen-md">
+      <div className="py-2 px-4 mx-auto max-w-screen-md" id="contact">
         <h2
           className="mb-4 text-4xl font-extrabold  
                            text-center text-white"
