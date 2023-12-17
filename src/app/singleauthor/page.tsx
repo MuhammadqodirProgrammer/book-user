@@ -51,7 +51,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex  max-[550px]:flex-col  justify-center items-center   gap-[30px] mb-[15px] ">
+      <div className="flex  max-[550px]:flex-col  justify-center items-center   gap-[30px] mb-[15px] pt-24">
         <button
           className="bg-red-500 flex items-center gap-2 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => router.push("/author")}
@@ -59,7 +59,7 @@ export default function Page() {
           <FaArrowLeftLong size={15} className=" my_animate  " />
           Back
         </button>
-        <h3 className=" text-[22px]  dark:text-white text-black text-center ">
+        <h3 className=" text-[22px]  text-white  text-center ">
           More about the author{" "}
         </h3>
       </div>
@@ -67,7 +67,7 @@ export default function Page() {
       {isLoading ? (
         <div
           key={data?.id}
-          className="flex  max-sm:flex-wrap gap-3 relative dark:bg-famousCourcesBg bg-slate-300  text-black  dark:text-white shadow-[0_1px_3px_0_rgba(0, 0, 0, 0.1),_0_1px_2px_0_rgba(0, 0, 0, 0.06)] rounded-md  p-4  w-[100%] max-lg:m-auto"
+          className="flex  max-sm:flex-wrap gap-3 relative dark:bg-famousCourcesBg bg-slate-300    text-white shadow-[0_1px_3px_0_rgba(0, 0, 0, 0.1),_0_1px_2px_0_rgba(0, 0, 0, 0.06)] rounded-md  p-4  w-[100%] max-lg:m-auto"
         >
           <Image
             className="h-[400px] max-sm:h-[280px]  max-sm:w-[100%]  w-[50%] object-cover rounded-lg transition ease-in-out hover:opacity-75"
@@ -77,41 +77,25 @@ export default function Page() {
             height={1000}
           />
           <div className="max-sm:w-[100%] w-[50%] ">
-            <h6 className="pt-[10px] text-[22px] font-bold text-black dark:text-white">
+            <h6 className="pt-[10px] text-[22px] font-bold  text-white">
               {data?.full_name}
             </h6>
             <div className="flex gap-[6px] py-[15px]">
-              <span className="flex gap-[5px] items-center text-[15px] text-black dark:text-famousCourcesDescsColor">
+              <span className="flex gap-[5px] items-center text-[15px]  dark:text-famousCourcesDescsColor">
                 <FaBirthdayCake size={20} />
                 {data?.birthday?.slice(0, 10)} {data?.state_birth}
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="flex gap-[5px] mb-3 items-center text-[15px] text-black dark:text-famousCourcesDescsColor">
+              <span className="flex gap-[5px] mb-3 items-center text-[15px]  dark:text-famousCourcesDescsColor">
                 <FaBook size={20} />
                 {data?.books?.length}
               </span>
             </div>
 
-            <div className="flex gap-[10px] items-center text-black dark:text-white">
+            <div className="flex gap-[10px] items-center  text-white">
               <p>Created:</p>
               {data?.createdAt?.slice(0, 10)}
-            </div>
-            <div className=" flex items-center gap-2  mt-3 ">
-              <RiDeleteBin5Fill
-                size={25}
-                onClick={() => {
-                  setDeleteModal(true);
-                }}
-                className=" text-red-600 hover:text-red-700  cursor-pointer h-[30px] "
-              />
-              <FaEdit
-                size={25}
-                onClick={() => {
-                  setEditModal(true);
-                }}
-                className=" text-yellow-400 hover:text-yellow-500 cursor-pointer h-[30px] "
-              />
             </div>
           </div>
         </div>
@@ -119,7 +103,7 @@ export default function Page() {
         ""
       )}
 
-      <h3 className=" text-[22px] my-3 dark:text-white text-black text-center ">
+      <h3 className=" text-[22px] my-3 text-white  text-center ">
         Author books{" "}
       </h3>
       <div className="grid lg:grid-cols-3   max-lg:grid-cols-2  mb-3 max-sm:grid-cols-1  gap-3">
@@ -127,7 +111,7 @@ export default function Page() {
           ? data?.books.map((item: any) => (
               <div
                 key={item?.id}
-                className="flex flex-col relative dark:bg-famousCourcesBg bg-slate-300  text-black  dark:text-white shadow-[0_1px_3px_0_rgba(0, 0, 0, 0.1),_0_1px_2px_0_rgba(0, 0, 0, 0.06)] rounded-md  p-4 max-lg:w-[90%] max-sm:w-[100%] w-[100%] max-lg:m-auto"
+                className="flex flex-col relative dark:bg-famousCourcesBg bg-slate-300    text-white shadow-[0_1px_3px_0_rgba(0, 0, 0, 0.1),_0_1px_2px_0_rgba(0, 0, 0, 0.06)] rounded-md  p-4 max-lg:w-[90%] max-sm:w-[100%] w-[100%] max-lg:m-auto"
               >
                 <Image
                   className="h-[280px]  w-full object-cover rounded-lg transition ease-in-out hover:opacity-75"
@@ -136,10 +120,10 @@ export default function Page() {
                   width={1000}
                   height={1000}
                 />
-                <h6 className="pt-[10px] text-[22px] font-bold text-black dark:text-white">
+                <h6 className="pt-[10px] text-[22px] font-bold  text-white">
                   {item?.book_title}
                 </h6>
-                <h6 className="pt-[10px] text-[16px] font-bold text-black dark:text-white mb-2">
+                <h6 className="pt-[10px] text-[16px] font-bold  text-white mb-2">
                   {item?.book_description?.length > 45
                     ? item?.book_description?.slice(0, 43) + ".."
                     : item?.book_description}
@@ -160,11 +144,11 @@ export default function Page() {
 
                 <hr className="h-1 w-full bg-CoursesHr" />
                 <div className="flex justify-between items-center pt-5">
-                  <div className="flex gap-[10px] items-center text-black dark:text-white">
+                  <div className="flex gap-[10px] items-center  text-white">
                     <p>Created:</p>
                     {item?.createdAt?.slice(0, 10)}
                   </div>
-                  <span className="flex gap-[5px] items-center text-[15px] text-black dark:text-famousCourcesDescsColor">
+                  <span className="flex gap-[5px] items-center text-[15px]  dark:text-famousCourcesDescsColor">
                     <IoMdEye size={20} />
                     {item?.number_view}
                   </span>

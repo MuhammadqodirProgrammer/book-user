@@ -107,7 +107,7 @@ function Header() {
             </a>
           </li>
           <li>
-            <a href="/about" data-replace="About">
+            <a href="#about" data-replace="About">
               <span>About</span>
             </a>
           </li>
@@ -121,9 +121,8 @@ function Header() {
               <span>Authors</span>
             </a>
           </li>
-
           <li>
-            <a href="/contact" data-replace="Contact">
+            <a href="#contact" data-replace="Contact">
               <span>Contact</span>
             </a>
           </li>
