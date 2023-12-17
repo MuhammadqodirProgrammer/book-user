@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 const notify = () => toast.success("Successfully registered");
 const notify2 = () => toast.error("Somthing went wrong try again!");
 
-export default function Register() {
+export default function Page() {
   const [ImgUrl, setImgUrl] = useState<any>("");
   const emailRef = useRef<any>(null);
   const fnameRef = useRef<any>(null);

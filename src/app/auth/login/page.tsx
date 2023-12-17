@@ -8,8 +8,7 @@ import { FaArrowLeftLong } from 'react-icons/fa6';
 import toast, { Toaster } from "react-hot-toast";
 const notify = () => toast.success("Successfully logged in");
 const notify2 = () => toast.error("Email or password wrong");
-
-export default function Login() {
+export default function Page() {
   const emailRef = useRef<any>(null);
   const passwordRef = useRef<any>(null);
   const router = useRouter();
