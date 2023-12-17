@@ -2,7 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
-import logo from "/public/logo.png";
+import logo from "/public/images/logo.png";
 import footer from "../utils/footer";
 import Image from "next/image";
 

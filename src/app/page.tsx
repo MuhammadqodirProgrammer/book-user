@@ -19,6 +19,7 @@ import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel/Hori
 import { baseURLImg } from "./api/api";
 import TiltCard from "@/components/TiltCard/TiltCard";
 import { AuthorService } from "@/services/author.services";
+import Footer from "../layout/Footer/Footer";
 
 export default function Home() {
   const [background, setBackground] = useState(20);
@@ -410,6 +411,129 @@ export default function Home() {
           />
         ))}
       </div>
+      <a
+        href="/books"
+        className={`
+        px-14 py-3  rounded-full cursor-pointer
+         items-center gap-2 text-white shadow-[-5px_-5px_10px_rgba(255,_255,_255,_0.8),_5px_5px_10px_rgba(0,_0,_0,_0.25)]
+        transition-all hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
+       font-semibold  flex justify-center max-w-[165px] m-auto mt-[80px]
+    `}
+      >
+        See all
+      </a>
+      {/* contact */}
+      <div className="py-2 px-4 mx-auto max-w-screen-md">
+        <h2
+          className="mb-4 text-4xl font-extrabold  
+                           text-center text-white"
+        >
+          Contact Us
+        </h2>
+        <p
+          className="mb-4 font-light text-left  
+                          text-gray-500 sm:text-xl"
+        >
+          Got a issue? Want to send feedback? Need details about our Courses?
+          Let us know.
+        </p>
+        <form action="#">
+          <div className="flex flex-row">
+            <div className="w-1/2 pr-2 ">
+              <label
+                htmlFor="firstName"
+                className="block my-2 text-left  
+                                          text-sm font-medium text-white"
+              >
+                First Name
+              </label>
+              <input
+                type="text"
+                className="shadow-sm bg-gray-50 border 
+                                          border-gray-300 text-gray-900  
+                                          text-sm rounded-lg block w-full p-2.5"
+                placeholder="Enter First Name"
+                required
+              />
+            </div>
+            <div className="w-1/2 pl-2">
+              <label
+                htmlFor="firstName"
+                className="block my-2 text-left text-sm  
+                                          font-medium text-white"
+              >
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="shadow-sm bg-gray-50 border  
+                                          border-gray-300 text-gray-900  
+                                          text-sm rounded-lg block w-full p-2.5"
+                placeholder="Enter Last Name"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block my-2 text-left text-sm  
+                                      font-medium text-white"
+            >
+              Your email
+            </label>
+            <input
+              type="email"
+              className="shadow-sm bg-gray-50 border  
+                                      border-gray-300 text-gray-900  
+                                      text-sm rounded-lg block w-full p-2.5"
+              placeholder="abc@geeksforgeeks.org"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="subject"
+              className="block my-2 text-left  
+                                      text-sm font-medium text-white"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              className="block p-3 w-full text-sm  
+                                      text-gray-900 bg-gray-50 rounded-lg  
+                                      border border-gray-300 shadow-sm "
+              placeholder="What issue/suggestion do you have?"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="message"
+              className="block my-2 text-left  
+                                      text-sm font-medium text-white "
+            >
+              Your message
+            </label>
+            <textarea
+              rows={6}
+              className="block p-2.5 w-full text-sm  
+                                         text-gray-900 bg-gray-50 rounded-lg  
+                                         shadow-sm border border-gray-300 "
+              placeholder="Query/Suggestion..."
+            />
+          </div>
+          <button
+            type="submit"
+            className="mt-2 p-2 float-right text-white   
+                                   rounded-lg border-green-600  
+                                   bg-green-600 hover:scale-105"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+      <Footer />
     </>
   );
 }
