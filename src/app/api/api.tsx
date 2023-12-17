@@ -3,11 +3,13 @@ import axios from "axios";
 export const baseURL = `https://library-backend.uz/api`;
 export const baseURLImg = `https://library-backend.uz/uploads/images/`;
 export const baseMediaUrl = "https://library-backend.uz/uploads/";
+const token =
+	typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+
 export const apiRoot = axios.create({
   baseURL: `https://library-backend.uz/api`,
   headers: {
-    Authorization:
-      localStorage.getItem("token") || sessionStorage.getItem("token"),
+    Authorization:token
   },
 });
 
