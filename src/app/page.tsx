@@ -9,14 +9,16 @@ import animatedData3 from "../../public/animations/Animation - 1702668905681.jso
 import animatedData4 from "../../public/animations/Animation - 1702668968066.json";
 import Image from "next/image";
 import shelf from "../../public/images/shelf.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Parallax, Autoplay } from "swiper/modules";
+const { Swiper, SwiperSlide } = require("swiper/react");
+const { Parallax, Autoplay } = require("swiper/modules");
 import "swiper/css";
 import book from "../../public/images/book.jpg";
 import { Quote } from "lucide-react";
 import { BookService } from "@/services/book.services";
 import HorizontalScrollCarousel from "@/components/HorizontalScrollCarousel/HorizontalScrollCarousel";
 import { baseURLImg } from "./api/api";
+import TiltCard from "@/components/TiltCard/TiltCard";
+import { AuthorService } from "@/services/author.services";
 
 export default function Home() {
   const [background, setBackground] = useState(20);
@@ -33,8 +35,8 @@ export default function Home() {
   const copy = useRef(null);
   const scrollDown = useRef(null);
   const [mostviewbooks, setMostviewbooks] = useState<any>([]);
-  const [mostcommentbooks, setMostcommentbooks] = useState([]);
-  const [lastbooks, setLastbooks] = useState([]);
+  const [mostcommentbooks, setMostcommentbooks] = useState<any>([]);
+  const [authors, setAuthors] = useState<any>([]);
 
   const fetchMostviewedbook = async () => {
     try {
@@ -56,10 +58,10 @@ export default function Home() {
     }
   };
 
-  const fetchbooks = async () => {
+  const fetchAuthors = async () => {
     try {
-      const data = await BookService.books();
-      setLastbooks(data);
+      const data = await AuthorService.get();
+      setAuthors(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -68,7 +70,7 @@ export default function Home() {
   useEffect(() => {
     fetchMostviewedbook();
     fetchMostcommentedbook();
-    fetchbooks();
+    fetchAuthors();
   }, []);
 
   useEffect(() => {
@@ -386,9 +388,28 @@ export default function Home() {
         <Lottie animationData={animatedData2} />
       </div>
       <HorizontalScrollCarousel />
-      <p>
-        qwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiopqwertyuiop
-      </p>
+      <a
+        href="/books"
+        className={`
+        px-14 py-3  rounded-full cursor-pointer
+         items-center gap-2 text-white shadow-[-5px_-5px_10px_rgba(255,_255,_255,_0.8),_5px_5px_10px_rgba(0,_0,_0,_0.25)]
+        transition-all hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
+       font-semibold  flex justify-center max-w-[165px] m-auto relative top-[-80px]
+    `}
+      >
+        See all
+      </a>
+      <h2 className="author_title">Authors</h2>
+      <div className="flex text-slate-900 gap-5">
+        {authors?.map((author: any) => (
+          <TiltCard
+            img={author.author_image}
+            name={author.full_name}
+            birthday={author.birthday}
+            id={author.id}
+          />
+        ))}
+      </div>
     </>
   );
 }
