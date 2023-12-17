@@ -1,6 +1,7 @@
 import { baseURLImg } from "@/app/api/api";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const TiltCard = ({ img, name, birthday, id }: any) => {
   const x = useMotionValue(0);
@@ -52,7 +53,7 @@ const TiltCard = ({ img, name, birthday, id }: any) => {
       }}
       className="relative h-96 w-72 max-[640px]:w-[95%] max-[640px]:mx-auto rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300"
     >
-      <a
+      <Link
         href="/authors"
         style={{
           transform: "translateZ(75px)",
@@ -71,7 +72,7 @@ const TiltCard = ({ img, name, birthday, id }: any) => {
           height={1000}
         />
         <h2 className="text-center pt-2 text-lg font-bold">{name}</h2>
-      </a>
+      </Link>
     </motion.div>
   );
 };

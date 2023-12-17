@@ -12,6 +12,7 @@ const Footer = () => {
           <a
             className="text-white media_link"
             href="https://t.me/Muhammadqodir_Programmer"
+            target={"_blank"}
           >
             <svg
               stroke="currentColor"
@@ -27,6 +28,8 @@ const Footer = () => {
           </a>
           <a
             className="text-white media_link"
+            target={"_blank"}
+
             href="https://www.instagram.com/muhammadqodirkomilov02"
           >
             <svg
@@ -44,6 +47,8 @@ const Footer = () => {
           <a
             className="text-white media_link"
             href="https://www.youtube.com"
+            target={"_blank"}
+
           >
             <svg
               stroke="currentColor"

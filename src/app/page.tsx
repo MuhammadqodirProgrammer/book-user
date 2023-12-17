@@ -7,7 +7,6 @@ import animatedData from "../../public/animations/Animation - 1702668030640.json
 import animatedData2 from "../../public/animations/Animation - 1702668102230.json";
 import animatedData3 from "../../public/animations/Animation - 1702668905681.json";
 import animatedData4 from "../../public/animations/Animation - 1702668968066.json";
-import Image from "next/image";
 import shelf from "../../public/images/shelf.png";
 const { Swiper, SwiperSlide } = require("swiper/react");
 const { Parallax, Autoplay } = require("swiper/modules");
@@ -20,6 +19,8 @@ import { baseURLImg } from "./api/api";
 import TiltCard from "@/components/TiltCard/TiltCard";
 import { AuthorService } from "@/services/author.services";
 import Footer from "../layout/Footer/Footer";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const [background, setBackground] = useState(20);
@@ -188,38 +189,46 @@ export default function Home() {
           }}
           className="parallax"
         >
-          <img
+          <Image
+          alt="img"
             ref={mountain3}
             className="mountain-3"
             src="/parallax/mountain-3.svg"
           />
-          <img
+          <Image
+          alt="img"
             ref={mountain2}
             className="mountain-2"
             src="/parallax/mountain-2.svg"
           />
-          <img
+          <Image
+          alt="img"
             ref={mountain1}
             className="mountain-1"
             src="/parallax/mountain-1.svg"
           />
-          <img ref={sun} className="sun" src="/parallax/sun.svg" />
-          <img
+          <Image
+          alt="img" ref={sun} className="sun" src="/parallax/sun.svg" />
+          <Image
+          alt="img"
             ref={cloudsBottom}
             className="clouds-bottom"
             src="/parallax/cloud-bottom.svg"
           />
-          <img
+          <Image
+          alt="img"
             ref={cloudsLeft}
             className="clouds-left"
             src="/parallax/clouds-left.svg"
           />
-          <img
+          <Image
+          alt="img"
             ref={cloudsRight}
             className="clouds-right"
             src="/parallax/clouds-right.svg"
           />
-          <img ref={stars} className="stars" src="/parallax/stars.svg" />
+          <Image
+          alt="img" ref={stars} className="stars" src="/parallax/stars.svg" />
           <div ref={copy} className="copy">
             <h1 className="hero_title">Bookinary</h1>
             <p className="flex gap-2">
@@ -232,7 +241,7 @@ export default function Home() {
               <Quote />
             </p>
             <q className="relative flex pt-1">John Waters</q>
-            <a
+            <Link
               href="/books"
               className={`
         px-6 py-3  rounded-full cursor-pointer
@@ -242,7 +251,7 @@ export default function Home() {
     `}
             >
               Start Reading
-            </a>
+            </Link>
           </div>
           <div className="indicator" ref={scrollDown}>
             <span></span>
@@ -275,7 +284,7 @@ export default function Home() {
             educational, motivation and career book to keep you going in any
             areas.
           </p>
-          <a
+          <Link
             href="/about"
             className={`
         px-6 py-3  rounded-full cursor-pointer
@@ -285,7 +294,7 @@ export default function Home() {
     `}
           >
             Read More
-          </a>
+          </Link>
         </div>
       </div>
       {/* books */}
@@ -314,7 +323,7 @@ export default function Home() {
           >
             {mostviewbooks?.map((book: any) => (
               <SwiperSlide key={book?.id}>
-                <a
+                <Link
                   href="/singlebook"
                   onClick={() => {
                     localStorage.setItem("book_id", book.id);
@@ -328,7 +337,7 @@ export default function Home() {
                     width={1000}
                     height={1000}
                   />
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -362,7 +371,7 @@ export default function Home() {
           >
             {mostcommentbooks?.map((book: any) => (
               <SwiperSlide key={book?.id}>
-                <a
+                <Link
                   href="/singlebook"
                   onClick={() => {
                     localStorage.setItem("book_id", book.id);
@@ -376,7 +385,7 @@ export default function Home() {
                     width={1000}
                     height={1000}
                   />
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -391,7 +400,7 @@ export default function Home() {
         <Lottie animationData={animatedData2} />
       </div>
       <HorizontalScrollCarousel />
-      <a
+      <Link
         href="/books"
         className={`
         px-14 py-3  rounded-full cursor-pointer
@@ -401,7 +410,7 @@ export default function Home() {
     `}
       >
         See all
-      </a>
+      </Link>
       <h2 className="author_title">Authors</h2>
       <div className="flex text-slate-900 gap-5 max-[800px]:flex-col px-2 max-w-[1240px] mx-auto  max-[1000px]:flex-wrap  ">
         {authors?.map((author: any) => (
@@ -414,7 +423,7 @@ export default function Home() {
           />
         ))}
       </div>
-      <a
+      <Link
         href="/authors"
         className={`
         px-14 py-3  rounded-full cursor-pointer
@@ -424,7 +433,7 @@ export default function Home() {
     `}
       >
         See all
-      </a>
+      </Link>
       {/* contact */}
       <div className="py-2 px-4 mx-auto max-w-screen-md" id="contact">
         <h2
