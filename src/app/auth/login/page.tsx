@@ -3,6 +3,7 @@ import { useRef } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 import toast, { Toaster } from "react-hot-toast";
 const notify = () => toast.success("Successfully logged in");
@@ -20,42 +21,20 @@ export default function Login() {
       password: passwordRef?.current.value,
     };
 
+  
     try {
       let response = await axios.post(
-        "http://165.227.164.31:4040/api/StudentAuth/login",
+        "https://library-backend.uz/api/auth/login",
         data
       );
-      console.log(response);
+      console.log(response , "resp");
 
-      if (
-        response.status == 200 &&
-        response.data.result == true &&
-        response.data.token
-      ) {
+      if (response.status == 201) {
         notify();
-        const token = response.data.token;
         if (typeof window !== "undefined") {
-          localStorage.setItem("token", token);
+          localStorage.setItem("token", response?.data?.token);
         }
-
-        axios
-          .get(`http://165.227.164.31:4040/api/identity`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-          .then((res: any) => {
-            const userName = (res?.data?.firstName).slice(0, 1).toUpperCase();
-            if (typeof window !== "undefined") {
-              localStorage.setItem("userName", userName);
-            }
-            if (res?.data?.identityRole == "Student") {
-              router.push("/");
-            }
-          })
-          .catch((err: any) => {
-            // console.log(err);
-          });
+        router.push("/");
       } else {
         notify2();
       }
@@ -65,28 +44,24 @@ export default function Login() {
   }
 
   return (
-    <main className="max-w-[1010px] w-[100%] m-auto pt-3">
-      <div className="w-full flex items-start gap-0 md:gap-5">
-        <div className="w-0 md:w-[50%]">
-          <svg
-            viewBox="0 0 528 560"
-            focusable="false"
-            xmlns="http://www.w3.org/2000/svg"
-            className="blur-3xl"
-          >
-            <circle cx="71" cy="61" r="111" fill="#F56565"></circle>
-            <circle cx="244" cy="106" r="139" fill="#ED64A6"></circle>
-            <circle cy="291" r="139" fill="#ED64A6"></circle>
-            <circle cx="80.5" cy="189.5" r="101.5" fill="#ED8936"></circle>
-            <circle cx="196.5" cy="317.5" r="101.5" fill="#ECC94B"></circle>
-            <circle cx="70.5" cy="458.5" r="101.5" fill="#48BB78"></circle>
-            <circle cx="426.5" cy="-0.5" r="101.5" fill="#4299E1"></circle>
-          </svg>
-        </div>
-        <div className="w-full md:w-[50%] p-5 rounded-lg bg-[#f7fafc] dark:bg-[#171923] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
-          <h2 className="text-[2.25rem] text-black dark:text-white font-bold">
+    <main className=" h-screen fixed z-50  w-[100%] m-auto pt-3   bg-gradient-to-br from-slate-900 to-teal-700 ">
+      <div className="w-full flex justify-center items-center gap-0 md:gap-5">
+       
+        <div className="w-[95%] mx-auto md:w-[50%] mt-[120px] max-[500px]:mt-[100px] p-5 rounded-lg bg-[#f7fafc] dark:bg-[#171923] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+        <div className="flex items-center justify-center gap-3 ">
+        <button
+					className='bg-red-500 flex items-center gap-2 hover:bg-red-700 text-white font-bold py-1 px-4 rounded'
+					onClick={() => router.push('/books')}
+				>
+					<FaArrowLeftLong size={15} className=' my_animate  ' />
+					Back 
+				</button>
+        
+          <h2 className="text-[2.25rem] text-black dark:text-white font-bold flex items-center">
             Kirish <span className="text-[#1a7745]">!</span>
           </h2>
+        </div>
+      
           <p className="text-black dark:text-white">
             Akauntingiz yo'qmi? {"  "}
             <Link
@@ -135,7 +110,7 @@ export default function Login() {
             </div>
             <button
               type="submit"
-              className="w-[100%] py-4 font-medium bg text-[17px] bg-ContactButton cursor-pointer border-none rounded-md transition ease-in-out hover:bg-ContactButtonHover"
+              className="w-[100%] py-4 font-medium bg text-[17px] bg-mainColor cursor-pointer border-none rounded-md transition ease-in-out hover:bg-ContactButtonHover"
             >
               Kirish
             </button>
