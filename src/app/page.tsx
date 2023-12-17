@@ -412,7 +412,7 @@ export default function Home() {
         ))}
       </div>
       <a
-        href="/books"
+        href="/authors"
         className={`
         px-14 py-3  rounded-full cursor-pointer
          items-center gap-2 text-white shadow-[-5px_-5px_10px_rgba(255,_255,_255,_0.8),_5px_5px_10px_rgba(0,_0,_0,_0.25)]
